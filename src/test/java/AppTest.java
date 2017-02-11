@@ -16,16 +16,20 @@ public class AppTest {
     @Before
     public void setUp() throws Exception {
 
-        robotController = new RobotController();
+
     }
 
     @Test
-    public void shouldDiscoveredFinalPoint(){
-        when(robotController.discoveredFinalPoint()).thenReturn(int[5,5]);
-        int[] finalPoint = robotController.discoveredFinalPoint();
+    public void shouldDiscoveredFinalPoint() {
+        int[] finalPointReturned = new int[2];
+        finalPointReturned[0]=5;
+        finalPointReturned[1]=5;
 
-        assertEquals(finalPoint[0], 5);
-        assertEquals(finalPoint[1], 5);
+        when(robotController.discoveredFinalPoint()).thenReturn(finalPointReturned);
+        int[] finalPointExpected = robotController.discoveredFinalPoint();
+
+        assertEquals(finalPointReturned[0], finalPointExpected[0]);
+        assertEquals(finalPointReturned[1], finalPointExpected[1]);
     }
 
 }
