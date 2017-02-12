@@ -1,8 +1,17 @@
 public class RobotController {
 
-    public int[] discoveredFinalPoint() {
 
-        return new int[]{5, 5};
+    Robot robot;
+    Command command;
+
+    public RobotController(Robot robot, Command command) {
+        this.robot = robot;
+        this.command = command;
     }
 
+    public Robot discoveredFinalPoint(String initialPoint, String commands ) {
+        robot.buildRobot(initialPoint);
+        command.executeCommands(robot, commands, "55");
+        return robot;
+    }
 }
